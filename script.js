@@ -39,13 +39,46 @@ console.log(playRound(playerSelection, computerSelection));
 
 
 function game() {
-  console.log(playRound(playerSelection, computerSelection));
-  console.log(playRound(playerSelection, computerSelection));
-  console.log(playRound(playerSelection, computerSelection));   
-  console.log(playRound(playerSelection, computerSelection));
-  console.log(playRound(playerSelection, computerSelection));
-}
+  let playerScore = 0;
+  let computerScore = 0;
+  let round = 1;
 
+  for (round <= 5; round++;) {
+      console.log(`Round ${round}:`);
 
+    if (round !== 6) {
+      const playerSelection = prompt('enter rock,paper or scissors');
+      const computerSelection = getComputerChoice();
 
+      console.log(`You chose: ${playerSelection}`);
+      console.log(`Computer chose: ${computerSelection}`);
+
+      const result = playRound(playerSelection, computerSelection);
+      console.log(result);
+
+      if (result.includes("Win")) {
+        playerScore++;
+      } else if (result.includes("Lose")) {
+        computerScore++;
+      }
+
+      console.log(`Player Score: ${playerScore}`);
+      console.log(`Computer Score: ${computerScore}`);
+      console.log('-----------------');
+    }
+
+    
+
+  if (round === 6) console.log("Game Over!"); {
+    if (playerScore > computerScore) {
+      console.log("Congratulations! You win!");
+    } else if (playerScore < computerScore) {
+      console.log("Oops! You lose!");
+    } else if (playerScore === computerScore) {
+      console.log("It's a tie!");
+    }
+  }
   
+}}
+
+game()
