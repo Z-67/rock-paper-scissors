@@ -46,7 +46,7 @@ function game() {
   for (round <= 5; round++;) {
       console.log(`Round ${round}:`);
 
-    if (round !== 6) {
+    if (round <= 5) {
       const playerSelection = prompt('enter rock,paper or scissors');
       const computerSelection = getComputerChoice();
 
@@ -77,6 +77,10 @@ function game() {
     } else if (playerScore === computerScore) {
       console.log("It's a tie!");
     }
+  }
+  
+  if (round === 6) {
+    break
   }
   
 }}
