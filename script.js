@@ -11,18 +11,27 @@ function getComputerChoice() {
       case 2:
         return 'scissors';
     }
+
 }
-getComputerChoice();
+
 
 
 function playRound(playerSelection, computerSelection) {
-  playerSelection = prompt("Enter rock,paper or scissors :");
-  playerSelection = playerSelection.toLowerCase();
-
-  computerSelection = getComputerChoice();
-   
-
+  playerSelection = playerSelection.toLowerCase(); // Convert playerSelection to lowercase
+  
+  if (playerSelection === computerSelection) {
+    return "It's a tie!";
+  } else if (
+    (playerSelection === 'rock' && computerSelection === 'scissors') ||
+    (playerSelection === 'paper' && computerSelection === 'rock') ||
+    (playerSelection === 'scissors' && computerSelection === 'paper')
+  ) {
+    return `You Win! ${playerSelection} beats ${computerSelection}`;
+  } else {
+    return `You Lose! ${computerSelection} beats ${playerSelection}`;
   }
+}
+
  
 const playerSelection = "rock";
 const computerSelection = getComputerChoice();
