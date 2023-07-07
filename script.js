@@ -15,38 +15,14 @@ function getComputerChoice() {
 }
 
 
-
-function playRound(playerSelection, computerSelection) {
-  playerSelection = playerSelection.toLowerCase(); // Convert playerSelection to lowercase
-  
-  if (playerSelection === computerSelection) {
-    return "It's a tie!";
-  } else if (
-    (playerSelection === 'rock' && computerSelection === 'scissors') ||
-    (playerSelection === 'paper' && computerSelection === 'rock') ||
-    (playerSelection === 'scissors' && computerSelection === 'paper')
-  ) {
-    return `You Win! ${playerSelection} beats ${computerSelection}`;
-  } else {
-    return `You Lose! ${computerSelection} beats ${playerSelection}`;
-  }
-}
-
- 
-const playerSelection = prompt('enter rock,paper or scissors');
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
-
-
 function game() {
   let playerScore = 0;
   let computerScore = 0;
   let round = 1;
 
-  for (round <= 5; round++;) {
-      console.log(`Round ${round}:`);
+  for (let round = 1; round <= 5; round++) {
+    console.log(`Round ${round}:`);
 
-    if (round <= 5) {
       const playerSelection = prompt('enter rock,paper or scissors');
       const computerSelection = getComputerChoice();
 
@@ -79,10 +55,32 @@ function game() {
     }
   }
   
-  if (round === 6) {
-    break
   }
   
-}}
 
 game()
+
+function playRound(playerSelection, computerSelection) {
+  playerSelection = playerSelection.toLowerCase(); // Convert playerSelection to lowercase
+  
+  if (playerSelection === computerSelection) {
+    return "It's a tie!";
+  } else if (
+    (playerSelection === 'rock' && computerSelection === 'scissors') ||
+    (playerSelection === 'paper' && computerSelection === 'rock') ||
+    (playerSelection === 'scissors' && computerSelection === 'paper')
+  ) {
+    return `You Win! ${playerSelection} beats ${computerSelection}`;
+  } else {
+    return `You Lose! ${computerSelection} beats ${playerSelection}`;
+  }
+
+  
+}
+
+ 
+playerSelection = 'rock'
+const computerSelection = getComputerChoice();
+
+
+
