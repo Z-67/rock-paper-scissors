@@ -5,6 +5,9 @@ const resultsDiv = document.getElementById('results');
 const userScoreDiv = document.querySelector('.user-score');
 const computerScoreDiv = document.querySelector('.computer-score');
 const roundDiv = document.querySelector('.round')
+const winDiv = document.querySelector('.win-statement')
+const loseDiv = document.querySelector('.lose-statement')
+const tieDiv = document.querySelector('.tie-statement')
 
 function getComputerChoice() {
     // Generate a random number between 0 and 2
@@ -46,17 +49,24 @@ function playRound(playerSelection, computerSelection) {
   round++;
   roundDiv.textContent = `Round: ${round}` ;
     if (playerSelection === computerSelection) {
-      return "It's a tie!";
+      console.log( "It's a tie!");
+      tieDiv.textContent = "Its a tie!";
+
     } else if (
       (playerSelection === 'rock' && computerSelection === 'scissors') ||
       (playerSelection === 'paper' && computerSelection === 'rock') ||
       (playerSelection === 'scissors' && computerSelection === 'paper')
     ) {
       console.log( `You Win! ${playerSelection} beats ${computerSelection}`);
+      winDiv.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;
+      
       playerScore++;
       userScoreDiv.textContent = `User Score: ${playerScore}`;
+
     } else {
         console.log( `You Lose! ${computerSelection} beats ${playerSelection}`);
+        loseDiv.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
+
         computerScore++;
         computerScoreDiv.textContent = `computer score: ${computerScore}` ;
       }
@@ -65,7 +75,7 @@ function playRound(playerSelection, computerSelection) {
 
 
 
-  if (round =5) {
+  if (round <=5) {
       // End the game
     console.log("Game Over!");
   if (playerScore > computerScore) {
