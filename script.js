@@ -48,6 +48,11 @@ function playRound(playerSelection, computerSelection) {
   playerSelection = playerSelection.toLowerCase(); // Convert playerSelection to lowercase
   round++;
   roundDiv.textContent = `Round: ${round}` ;
+
+  winDiv.textContent = '';
+  loseDiv.textContent = '';
+  tieDiv.textContent = '';
+
     if (playerSelection === computerSelection) {
       console.log( "It's a tie!");
       tieDiv.textContent = "Its a tie!";
@@ -78,15 +83,15 @@ function playRound(playerSelection, computerSelection) {
   if (round <=5) {
       // End the game
     console.log("Game Over!");
-  if (playerScore > computerScore) {
-    console.log("Congratulations! You win!");
-  } else if (playerScore < computerScore) {
-    console.log("Oops! You lose!");
-  } else {
-    console.log("It's a tie!");
+    if (playerScore > computerScore) {
+      console.log("Congratulations! You win!");
+    } else if (playerScore < computerScore) {
+      console.log("Oops! You lose!");
+    } else {
+      console.log("It's a tie!");
+      }
     }
   }
-}
   
 game();
 
